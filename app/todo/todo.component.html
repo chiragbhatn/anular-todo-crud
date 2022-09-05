@@ -1,0 +1,39 @@
+<div class="container">
+  <h1 style="text-align: center;"></h1>
+  <br>
+  <br>
+
+  <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2" [formGroup]="todoForm"
+    (ngSubmit)="addTask()">
+    <div class="col-12">
+
+      <div class="form-outline">
+        <input type="text" id="form1" class="form-control" placeholder="Add Your Task Here" #todoItem
+          formControlName="todoItem" />
+
+      </div>
+
+      <br>
+
+
+      <button type="submit" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Add
+        Task
+      </button>
+
+
+      <br>
+      <br>
+
+
+    </div>
+  </form>
+  <table class="table table-stripped">
+    <tr *ngFor="let item of list; let i = index;">
+      <th scope="row">{{i+1}}</th>
+
+      <td> {{item.todoItem}} <button type="button" class="btn btn-outline-primary" (click)="deleteTask(item.id) ">Delete
+          Task</button>
+      </td>
+    </tr>
+  </table>
+</div>
